@@ -27,8 +27,12 @@ class DolphinGenerator(Generator):
         # Generate the controller config(s)
         dolphinControllers.generateControllerConfig(system, playersControllers, metadata, wheels, rom, guns)
 
+        # Crea un objeto ConfigParser
+        config = configparser.ConfigParser()
+
         ## [ dolphin.ini ] ##
         dolphinSettings = configparser.ConfigParser(interpolation=None)
+        dolphinTools = config['tools']
         # To prevent ConfigParser from converting to lower case
         dolphinSettings.optionxform = str
         if os.path.exists(batoceraFiles.dolphinIni):
