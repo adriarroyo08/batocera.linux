@@ -40,6 +40,17 @@
               "KEY_LEFTCTRL",
               "KEY_P"
           ]
+        },
+        {
+            "trigger": [
+                "hotkey",
+                "x"
+            ],
+            "type": "key",
+            "target": [
+              "KEY_LEFTCTRL",
+              "KEY_I"
+          ]
         }
     ]
 }
