@@ -30,5 +30,16 @@
             "type": "key",
             "target": [ "KEY_LEFTSHIFT", "KEY_TAB" ]
         },
+        {
+            "trigger": [
+                "hotkey",
+                "a"
+            ],
+            "type": "key",
+            "target": [
+              "KEY_LEFTCTRL",
+              "KEY_P"
+          ]
+        }
     ]
 }
