@@ -32,7 +32,7 @@ config BR2_PACKAGE_BATOCERA_EMULATIONSTATION
         help
           A multi emulator frontend.
 
-	  https://github.com/Aloshi/EmulationStation
+	  https://github.com/adriarroyo08/batocera-emulationstation
 
 if BR2_PACKAGE_BATOCERA_EMULATIONSTATION
 choice
