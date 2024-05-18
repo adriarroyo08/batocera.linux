@@ -24,7 +24,7 @@ jobs:
 
     - name: Build Batocera
       run: |
-        git clone --depth 1 https://github.com/adriarroyo08/batocera.linux
+        git clone --depth 1 https://github.com/batocera-linux/batocera.linux.git
         cd batocera.linux
         ./docker-run make
 
