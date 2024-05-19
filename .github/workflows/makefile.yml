@@ -34,7 +34,6 @@ jobs:
 
     - name: Build with Docker
       run: |
-        cd batocera.linux
         ./docker-run make
 
     - name: List output directory
