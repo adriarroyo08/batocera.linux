@@ -34,10 +34,7 @@ jobs:
 
     - name: Build with Docker
       run: |
-        ls -alh
-        cd scripts
-        ls -alh
-        make build
+        make 86_64-build
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
