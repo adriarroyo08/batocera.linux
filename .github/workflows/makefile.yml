@@ -34,7 +34,6 @@ jobs:
 
     - name: Build Project
       run: |
-        cd batocera.linux
         make
 
     - name: Upload artifacts
