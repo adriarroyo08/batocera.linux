@@ -1,46 +1,27 @@
-name: Build Batocera
+name: Makefile CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "master" ]
   pull_request:
-    branches:
-      - main
+    branches: [ "master" ]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v2
-
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2
-
-    - name: Cache Docker layers
-      uses: actions/cache@v2
-      with:
-        path: /tmp/.buildx-cache
-        key: ${{ runner.os }}-buildx-${{ github.sha }}
-        restore-keys: |
-          ${{ runner.os }}-buildx-
+    - name: configure
+      run: ./configure
 
     - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install -y build-essential git wget
+      run: make
 
-    - name: Build Batocera
-      run: |
-        git clone --depth 1 https://github.com/batocera-linux/batocera.linux.git
-        cd batocera.linux
-        ./docker-run make
+    - name: Run check
+      run: make check
 
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: batocera-build
-        path: batocera.linux/output/
+    - name: Run distcheck
+      run: make distcheck
