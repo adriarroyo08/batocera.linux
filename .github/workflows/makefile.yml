@@ -37,7 +37,7 @@ jobs:
 
     - name: List output directory
       run: |
-        cd batocera.linux/output
+        cd /home/runner/work/batocera.linux/batocera.linux/output
         ls -alh
 
     - name: Upload artifacts
