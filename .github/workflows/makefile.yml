@@ -36,7 +36,7 @@ jobs:
       run: |
         cd ./
         ls
-        make
+        make 86_64-build
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
