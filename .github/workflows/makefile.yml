@@ -40,4 +40,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: batocera-build
-        path: batocera.linux/output/
+        path: /home/runner/work/batocera.linux/batocera.linux/output
