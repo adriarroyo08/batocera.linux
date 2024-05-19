@@ -35,8 +35,8 @@ jobs:
 
     - name: Build Project
       run: |
-        cd batocera.linux
-        make
+        ls -alh
+        make 86_64-build
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
