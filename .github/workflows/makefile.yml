@@ -32,9 +32,15 @@ jobs:
     - name: Install dependencies
       run: sudo apt-get update && sudo apt-get install -y build-essential git wget
 
-    - name: Build Project
+    - name: Build with Docker
       run: |
-        make
+        cd batocera.linux
+        ./docker-run make
+
+    - name: List output directory
+      run: |
+        cd batocera.linux/output
+        ls -alh
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
