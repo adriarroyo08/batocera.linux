@@ -35,11 +35,6 @@ jobs:
     - name: Build with Docker
       run: docker build .
 
-    - name: List output directory
-      run: |
-        cd /home/runner/work/batocera.linux/batocera.linux/output
-        ls -alh
-
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
