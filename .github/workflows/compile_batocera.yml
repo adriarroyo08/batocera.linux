@@ -1,4 +1,4 @@
-name: Compile Batocera
+name: Compile Saphire
 
 on:
   push:
