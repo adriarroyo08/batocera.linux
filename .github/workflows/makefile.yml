@@ -24,7 +24,7 @@ jobs:
     - name: Build with Docker
       run: |
         make vars
-        make x86_64-build </dev/null
+        make x86_64-build --batch
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
