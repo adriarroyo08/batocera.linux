@@ -23,8 +23,6 @@ jobs:
 
     - name: Build with Docker
       run: |
-        cd ..
-        ls -alh
         make 86_64-build
 
     - name: Upload artifacts
