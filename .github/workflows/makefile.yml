@@ -34,7 +34,8 @@ jobs:
 
     - name: Build with Docker
       run: |
-        cd ./
+        ls -alh
+        cd scripts
         ls -alh
         make build
 
