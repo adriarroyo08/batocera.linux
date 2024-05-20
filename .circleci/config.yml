@@ -1,0 +1,45 @@
+version: 2.1
+
+executors:
+  linux:
+    docker:
+      - image: circleci/python:3.8
+    working_directory: ~/repo
+
+jobs:
+  build:
+    executor: linux
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y build-essential git wget curl python3-pip
+            pip3 install --upgrade pip
+
+      - run:
+          name: Clone Batocera Repository
+          command: |
+            git clone --depth 1 https://github.com/batocera-linux/batocera.linux.git
+            cd batocera.linux
+            git submodule update --init --recursive
+
+      - run:
+          name: Set up build environment
+          command: |
+            cd batocera.linux
+            export BR2_EXTERNAL=$(pwd)/buildroot-external
+            make BR2_EXTERNAL=$BR2_EXTERNAL batocera-x86_64_defconfig
+
+      - run:
+          name: Build Batocera
+          command: |
+            cd batocera.linux
+            make
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
