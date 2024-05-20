@@ -36,6 +36,13 @@ jobs:
             git submodule update --init --recursive
 
       - run:
+          name: Set up build environment
+          command: |
+            cd batocera.linux
+            export BR2_EXTERNAL=$(pwd)/buildroot-external
+            make BR2_EXTERNAL=$BR2_EXTERNAL batocera-x86_64_defconfig
+
+      - run:
           name: Build Batocera
           command: |
             cd batocera.linux
