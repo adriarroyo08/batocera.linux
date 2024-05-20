@@ -39,6 +39,7 @@ jobs:
       - run:
           name: Configurar Buildroot
           command: |
+            ls -lah
             cd batocera.linux
             make vars
             make x86_64-build
