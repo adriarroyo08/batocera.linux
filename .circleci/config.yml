@@ -37,10 +37,16 @@ jobs:
 
 
       - run:
-          name: Build Batocera
+          name: Configurar Buildroot
           command: |
-            cd batocera.linux
-            make x86_64-build
+            cd batocera.linux/buildroot
+            make menuconfig
+
+      - run:
+          name: Compilar Batocera
+          command: |
+            cd batocera.linux/buildroot
+            make
 
 workflows:
   version: 2
