@@ -1,16 +1,26 @@
 version: 2.1
 
 executors:
-  linux:
+  docker-executor:
     docker:
       - image: circleci/python:3.8
     working_directory: ~/repo
+    resource_class: large  # Puede ser necesario para builds más grandes
+    environment:
+      DOCKER_HOST: tcp://docker:2375
+      DOCKER_DRIVER: overlay2
+      DOCKER_TLS_CERTDIR: ""
 
 jobs:
   build:
-    executor: linux
+    executor: docker-executor
     steps:
+      - setup_remote_docker:
+          version: 20.10.7  # Versión de Docker a utilizar
+          docker_layer_caching: true  # Habilita la caché de capas de Docker para builds más rápidas
+
       - checkout
+
       - run:
           name: Install dependencies
           command: |
