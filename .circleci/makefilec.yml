@@ -1,0 +1,42 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4 # Actualizado a Node.js 20
+
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y build-essential git wget
+
+    - name: Clone Batocera Repository
+      run: |
+        git clone --depth 1 https://github.com/adriarroyo08/batocera.linux.git
+        cd batocera.linux
+        git submodule update --init --recursive
+        
+
+    - name: Build with Docker
+      run: |
+        cd batocera.linux
+        script -q -c "make x86_64-build" /dev/null
+
+    - name: List output directory
+      run: |
+        cd batocera.linux/output
+        ls -alh
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: batocera-build
+        path: batocera.linux/output/
