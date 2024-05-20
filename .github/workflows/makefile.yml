@@ -26,7 +26,7 @@ jobs:
         make vars
         make x86_64-build -t
         ls -alh
-        cd output-dir-x86_64
+        cd batocera.linux
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
