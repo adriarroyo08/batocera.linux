@@ -39,6 +39,9 @@ jobs:
       - run:
           name: Configurar Buildroot
           command: |
+            ls -alh
+            make vars
+            ls -alh
             make x86_64-build
 
       - run:
