@@ -21,22 +21,15 @@ jobs:
       - run:
           name: Clone Batocera Repository
           command: |
-            git clone --depth 1 https://github.com/batocera-linux/batocera.linux.git
+            git clone --depth 1 https://github.com/adriarroyo08/batocera.linux
             cd batocera.linux
             git submodule update --init --recursive
-
-      - run:
-          name: Set up build environment
-          command: |
-            cd batocera.linux
-            export BR2_EXTERNAL=$(pwd)/buildroot-external
-            make BR2_EXTERNAL=$BR2_EXTERNAL batocera-x86_64_defconfig
 
       - run:
           name: Build Batocera
           command: |
             cd batocera.linux
-            make
+            make x86_64-build
 
 workflows:
   version: 2
