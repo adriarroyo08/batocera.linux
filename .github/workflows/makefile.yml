@@ -27,10 +27,8 @@ jobs:
 
     - name: Build with Docker
       run: |
-        make vars
-        script -q -c "make x86_64-config" /dev/null
-        ls -alh
         cd batocera.linux
+        script -q -c "make x86_64-config" /dev/null
         ls -alh
 
     - name: Upload artifacts
