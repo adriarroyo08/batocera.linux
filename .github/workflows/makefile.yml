@@ -21,6 +21,12 @@ jobs:
     - name: Clone Batocera Repository
       run: git clone --depth 1 https://github.com/adriarroyo08/batocera.linux
 
+    - name: Set up build environment
+      run: |
+        cd batocera.linux
+        export BR2_EXTERNAL=$(pwd)/buildroot-external
+        make BR2_EXTERNAL=$BR2_EXTERNAL batocera-x86_64_defconfig
+
     - name: Build with Docker
       run: |
         make vars
