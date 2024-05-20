@@ -29,10 +29,14 @@ jobs:
       run: |
         cd batocera.linux
         script -q -c "make x86_64-config" /dev/null
+
+    - name: List output directory
+      run: |
+        cd batocera.linux/output
         ls -alh
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: batocera-build
-        path: /home/runner/work/batocera.linux/batocera.linux/output
+        path: batocera.linux/output/
