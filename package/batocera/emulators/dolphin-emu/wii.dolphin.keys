@@ -21,11 +21,6 @@
             "target": "KEY_F5"
         },
         {
-            "trigger": [ "hotkey", "x" ],
-            "type": "key",
-            "target": "KEY_F8"
-        }
-        {
             "trigger": [ "hotkey", "a" ],
             "type": "key",
             "target": [ "KEY_LEFTSHIFT", "KEY_TAB" ]
@@ -33,7 +28,7 @@
         {
             "trigger": [
                 "hotkey",
-                "a"
+                "b"
             ],
             "type": "key",
             "target": [
