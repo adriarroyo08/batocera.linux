@@ -40,7 +40,7 @@ jobs:
           command: |
             cd batocera.linux
             export BR2_EXTERNAL=$(pwd)/buildroot-external
-            make BR2_EXTERNAL=$BR2_EXTERNAL batocera-x86_64_defconfig
+            make BR2_EXTERNAL=$BR2_EXTERNAL configs/batocera-x86_64_defconfig
 
       - run:
           name: Build Batocera
